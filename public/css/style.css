@@ -91,7 +91,12 @@ body{
 
 #header-search__input:focus-visible {
   outline-width: 0;
+  outline: none;
   border: 1px solid #000000;
+}
+
+#header-search__input:focus {
+  outline: none;
 }
 
 #header-search__button {
@@ -422,6 +427,7 @@ body{
 .video-card {
   display: block;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .video-card:hover .video-card__functions {
