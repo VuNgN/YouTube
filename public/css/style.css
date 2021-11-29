@@ -201,7 +201,7 @@ body{
 .body-left__guide-entry {
   padding: 12px 0;
   text-decoration: none;  
-  border-bottom: 1px solid #e5e5e5;
+  border-ottom: 1px solid #e5e5e5;
   list-style: none;
 }
 
@@ -332,4 +332,69 @@ body{
   margin: 15px 25px 5px;
 }
 
+#body-right { 
+  margin-left: 16.6%;
+  padding-top: 55px;
+  width: 83.4%;
+  display: block;
+  height: 100%;
+}
 
+#body_chips {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  border-top: 1px solid #e5e5e5; 
+  border-bottom: 1px solid #e5e5e5;    
+}
+
+.body-chips__chip {
+  height: 30px;
+  max-width: 224px;
+  line-height: 30px;
+  margin: 0 5px;
+  padding: 0 12px;
+  background-color: #f2f2f2;
+  border: 1px solid #dadada;
+  border-radius: 30px;
+  display: block;
+  display: -webkit-box;
+  /*overflow: hidden;*/
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+          line-clamp: 1;
+  -webkit-box-orient: horizontal;
+}
+
+.body-chips__chip:hover {
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+
+.body-chips__chip-active {
+  background-color: #030303;
+  color: #ffffff;
+  border: none;
+}
+
+.body-chips__chip.body-chips__chip-active:hover {
+  background-color: #030303;
+  cursor: pointer;
+}
+
+.chip__text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+
+}
