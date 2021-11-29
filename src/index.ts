@@ -1,30 +1,40 @@
-const guideEntryElement = document.querySelectorAll<HTMLUListElement>('.body-left__guide-entry');
-
-const clearActiveElement = () => {
-  guideEntryElement.forEach((guide: HTMLUListElement) => {
-    const childOfGuide = guide.children as HTMLCollection;
-    for (let child in childOfGuide) {
-      if (childOfGuide[child].firstElementChild) {
-        const liElement = childOfGuide[child].firstElementChild as HTMLLIElement;
-        liElement.classList.remove('guide-entry__item-active');
-      }
-    }
+const guideEntryElement = document.querySelectorAll<HTMLLIElement>('.guide-entry__item');
+const clearGuideActiveElement = () => {
+  guideEntryElement.forEach((guide: HTMLLIElement) => {
+    guide.classList.remove('guide-entry__item-active')
   });
 }
-
-guideEntryElement.forEach((guide: HTMLUListElement) => {
+guideEntryElement.forEach((guide: HTMLLIElement) => {
   guide.addEventListener('click', (e: Event) => {
     const target = e.target as HTMLElement;
     if (target.localName === 'li') {
-      clearActiveElement();
+      clearGuideActiveElement();
       target.classList.add('guide-entry__item-active');
     } else if (target.localName === 'span' || target.localName === 'p') {
       const parentElement = target.parentElement as HTMLElement;
-      if (parentElement.localName === 'li') {
-        clearActiveElement();
-        parentElement.classList.add('guide-entry__item-active');
-
-      }
+      clearGuideActiveElement();
+      parentElement.classList.add('guide-entry__item-active');
     }
   });
 });
+
+const chipsElements = document.querySelectorAll<HTMLDivElement>('.body-chips__chip');
+const clearChipActiveElement = () => {
+  chipsElements.forEach((chipElement: HTMLDivElement) => {
+    chipElement.classList.remove('body-chips__chip-active');
+  })
+}
+chipsElements.forEach((chipElement: HTMLDivElement) => {
+  chipElement.addEventListener('click', (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (target.localName === 'div') {
+      clearChipActiveElement();
+      target.classList.add('body-chips__chip-active');
+    } else {
+      const parentElement = target.parentElement as HTMLElement;
+      clearChipActiveElement();
+      parentElement.classList.add('body-chips__chip-active');
+    }
+  });
+})
+

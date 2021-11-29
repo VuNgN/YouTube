@@ -343,10 +343,12 @@ body{
   width: 83.4%;
   display: block;
   height: 100%;
+  background-color: #f9f9f9;
 }
 
 #body_chips {
   display: flex;
+  background-color: #ffffff;
   align-items: center;
   padding: 10px 20px;
   overflow-x: scroll;
@@ -406,12 +408,13 @@ body{
 
 #body-right__video-cards {
   height: 100%;
-  margin: 0px 25px;
+  padding: 0px 25px;
   padding-top: 20px;
   position: absolute;
   scrollbar-width: thin !important;
   overflow-y: auto;
   scroll-behavior: smooth;
+  background-color: #f9f9f9;
 }
 
 .body-right__row {

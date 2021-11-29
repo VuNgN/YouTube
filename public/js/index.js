@@ -1,29 +1,41 @@
 "use strict";
-const guideEntryElement = document.querySelectorAll('.body-left__guide-entry');
-const clearActiveElement = () => {
+const guideEntryElement = document.querySelectorAll('.guide-entry__item');
+const clearGuideActiveElement = () => {
     guideEntryElement.forEach((guide) => {
-        const childOfGuide = guide.children;
-        for (let child in childOfGuide) {
-            if (childOfGuide[child].firstElementChild) {
-                const liElement = childOfGuide[child].firstElementChild;
-                liElement.classList.remove('guide-entry__item-active');
-            }
-        }
+        guide.classList.remove('guide-entry__item-active');
     });
 };
 guideEntryElement.forEach((guide) => {
     guide.addEventListener('click', (e) => {
         const target = e.target;
         if (target.localName === 'li') {
-            clearActiveElement();
+            clearGuideActiveElement();
             target.classList.add('guide-entry__item-active');
         }
         else if (target.localName === 'span' || target.localName === 'p') {
             const parentElement = target.parentElement;
-            if (parentElement.localName === 'li') {
-                clearActiveElement();
-                parentElement.classList.add('guide-entry__item-active');
-            }
+            clearGuideActiveElement();
+            parentElement.classList.add('guide-entry__item-active');
+        }
+    });
+});
+const chipsElements = document.querySelectorAll('.body-chips__chip');
+const clearChipActiveElement = () => {
+    chipsElements.forEach((chipElement) => {
+        chipElement.classList.remove('body-chips__chip-active');
+    });
+};
+chipsElements.forEach((chipElement) => {
+    chipElement.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.localName === 'div') {
+            clearChipActiveElement();
+            target.classList.add('body-chips__chip-active');
+        }
+        else {
+            const parentElement = target.parentElement;
+            clearChipActiveElement();
+            parentElement.classList.add('body-chips__chip-active');
         }
     });
 });
