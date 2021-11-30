@@ -1,3 +1,31 @@
+const guideItemElement = document.querySelectorAll<HTMLLIElement>(
+  '.guide-entry__item'
+);
+const chipsElements = document.querySelectorAll<HTMLDivElement>(
+  '.body-chips__chip'
+);
+const menuIconSwapper = document.querySelector('#header__menuicon-swapper') as HTMLDivElement;
+const bodyLeftElement = document.querySelector('#body-left') as HTMLDivElement;
+const bodyRightElement = document.querySelector('#body-right') as HTMLDivElement;
+
+onClickElement(guideItemElement, "guide-entry__item-active");
+onClickElement(chipsElements, "body-chips__chip-active");
+
+menuIconSwapper.addEventListener('click', () => {
+  showMenu(!(bodyLeftElement.style.width === '0px'));
+})
+
+function showMenu(isShowMenu: boolean): void {
+  if (isShowMenu) {
+    bodyLeftElement.style.width = '0';
+    bodyRightElement.style.marginLeft = '0';
+    bodyRightElement.style.width = '100%';
+  } else {
+    bodyLeftElement.style.width = '16.6%';
+    bodyRightElement.style.marginLeft = '16.6%';
+    bodyRightElement.style.width = '83.4%';
+  }
+}
 function clearActiveElement<T extends {forEach: Function}>(
   elements: T,
   idElement: string
@@ -25,12 +53,3 @@ function onClickElement<T extends {forEach: Function}>(
   });
 }
 
-const guideEntryElement = document.querySelectorAll<HTMLLIElement>(
-  '.guide-entry__item'
-);
-const chipsElements = document.querySelectorAll<HTMLDivElement>(
-  '.body-chips__chip'
-);
-
-onClickElement(guideEntryElement, "guide-entry__item-active");
-onClickElement(chipsElements, "body-chips__chip-active");
